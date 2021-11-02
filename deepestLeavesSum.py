@@ -3,6 +3,7 @@ class Solution(object):
         deepest = self.halper(root)
         return self.answer(root, 0, deepest)
 
+    # gets the max depth of the tree
     def halper(self, root):
         if root is None:
             return 0
