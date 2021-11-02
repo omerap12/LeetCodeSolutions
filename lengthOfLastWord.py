@@ -1,3 +1,5 @@
+solution To: https://leetcode.com/problems/length-of-last-word/
+
 class Solution(object):
     def lengthOfLastWord(self, s):
         word = s.rstrip()
