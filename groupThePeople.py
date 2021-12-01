@@ -1,4 +1,3 @@
-       
 class Solution(object):
     def groupThePeople(self, groupSizes):
         answer = []
