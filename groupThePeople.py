@@ -1,4 +1,5 @@
 solution to: https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to/
+        
 class Solution(object):
     def groupThePeople(self, groupSizes):
         answer = []
