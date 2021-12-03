@@ -2,31 +2,36 @@ answer to: https://leetcode.com/problems/daily-temperatures/
     
 class Solution(object):
     def dailyTemperatures(self, temperatures):
-        data_structure = {len(temperatures)-1: 0} # create dictionary for dynamic programming
+        data_structure = {len(temperatures)-1: 0} # create data for dynamic programming
         answer = [0] * len(temperatures)  # create first list of zeroes
-        for i in range(len(temperatures) - 2, -1, -1): # start looping through the array from the end
-            if temperatures[i] < temperatures[i + 1]: # if the current day temp is less than it's next day temp
+        for i in range(len(temperatures) - 2, -1, -1): # start loop from the end
+            if temperatures[i] < temperatures[i + 1]: # if the next day is warmer, put 1 in data & answer
                 answer[i] = 1
                 data_structure[i] = 1
             else:
-                # if the current day temp is bigger than next day day temp
+                # calculate the next warmer day index function
                 self.helper(data_structure, i, temperatures, answer)
         return answer
 
     def helper(self, data, current_index, temperatures, answer):
-        # check if is there bigger temp in the next days, if not than 0
+        # if there is not warmer day
         if data[current_index+1] == 0:
             data[current_index] = 0
             return
+        check = False
+        # get the index of the next warmer day from the data
         above_index = data[current_index + 1] + 1 + current_index  # get the index of the next big temperature
-        while True:
-            if data[above_index] == 0: # if there is no hotter than 0
+        while not check:
+            # if there is no warmer day
+            if data[above_index] == 0:
                 data[current_index] = 0
-                break
-            if temperatures[current_index] < temperatures[above_index]: # if the next index day is warmer
-                data[current_index] = above_index - current_index # add the index value to data
-                answer[current_index] = data[current_index] # answer[i] = index of the next warmer day
-                break
+                check = True
+            # if its warmer day indeed
+            if temperatures[current_index] < temperatures[above_index]:
+                # put the distance from the current day in data and answer
+                data[current_index] = above_index - current_index
+                answer[current_index] = data[current_index]
+                check = True
             else:
-                # go to the next warmer day
+                # get the next warmer day
                 above_index = above_index+data[above_index]
