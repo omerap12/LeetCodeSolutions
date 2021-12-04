@@ -1,4 +1,4 @@
-solution To:https://leetcode.com/problems/gas-station/submissions/
+solution To:https://leetcode.com/problems/gas-station/
 
 class Solution(object):
     def canCompleteCircuit(self, gas, cost):
