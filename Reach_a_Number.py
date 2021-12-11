@@ -4,7 +4,7 @@ class Solution(object):
     def reachNumber(self, target):
         """
         observation: when calculating s = (1+2+...+n) if s>target than need to back a step so for some index i we 
-        need to subtract -2i from s, so for every iteration when current_loaction (s) if current_loctaion> target and 
+        need to subtract -2i from s, so for every iteration when current_location (s) if current_location> target and 
         (current_location - target)%2 == 0 return number of steps 
         :param target: the value to get 
         :return: minimum number of steps
