@@ -5,7 +5,8 @@ class Solution(object):
         """
         observation: when calculating s = (1+2+...+n) if s>target than need to back a step so for some index i we 
         need to subtract -2i from s, so for every iteration when current_location (s) if current_location> target and 
-        (current_location - target)%2 == 0 return number of steps 
+        (current_location - target)%2 == 0 return number of steps.
+        to sum up: if the difference between the current_location and the target is even there is one step that needs to be backward instead of forward
         :param target: the value to get 
         :return: minimum number of steps
         """
