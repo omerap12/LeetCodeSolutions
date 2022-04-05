@@ -25,4 +25,4 @@ class Solution(object):
 
         # get the right side of the array
         else:
-            return self.helper(numbers, middle_index + 1, high_index
+            return self.helper(numbers, middle_index + 1, high_index)
