@@ -1,16 +1,25 @@
-class Solution:
-    def deleteAndEarn(self, nums):
-        sum_of_odd = 0
-        sum_of_even = 0
-        for number in nums:
-            if number % 2 == 0:
-                sum_of_even += number
+import math
+class Solution(object):
+    def minEatingSpeed(self, piles, h):
+        max_banana_pile = max(piles)
+        if h == len(piles):
+            return max_banana_pile
+        # binary search
+        min_banana_pile = 1
+        min_banana_current = max_banana_pile
+        while min_banana_pile < max_banana_pile:
+            mid = (max_banana_pile + min_banana_pile) // 2
+            if self.check_banana_per_hour(mid, piles, h):
+                min_banana_current = mid
+                max_banana_pile = mid
             else:
-                sum_of_odd += number
-        return max(sum_of_odd,sum_of_even)
+                min_banana_pile = mid + 1
+        return min_banana_current
 
-n = Solution()
-nums = [2,3,4]
-print(n.deleteAndEarn(nums))
-# nums = [2,2,3,3,3,4]
-# print(n.deleteAndEarn(nums))
+    def check_banana_per_hour(self, bph, piles, h):
+        banana_counter = 0
+        for number in piles:
+            banana_counter += math.ceil(number / bph)
+        if banana_counter <= h:
+            return True
+        return False
