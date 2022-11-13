@@ -1,1 +1,1 @@
-Leetcode problem solutions written by me 
+Leetcode problem solutions written by me. 
