@@ -1,4 +1,4 @@
-answer to: https://leetcode.com/problems/daily-temperatures/
+#https://leetcode.com/problems/daily-temperatures/
     
 class Solution(object):
     def dailyTemperatures(self, temperatures):
