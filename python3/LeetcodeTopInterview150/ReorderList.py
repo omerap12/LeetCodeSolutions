@@ -13,7 +13,6 @@ class Solution:
        tmp_head = head.next
        while tmp_head:
            stack.append(tmp_head)
-           tmp_head = tmp_head
            tmp_head = tmp_head.next
        
        temp = head
